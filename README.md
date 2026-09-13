@@ -1,5 +1,24 @@
 # Rate Limiter API Challenge
 
+## Getting Started (A Note from the Candidate)
+See project [`rate-limiter/README.md`](rate-limiter/README.md) for operating directions, and  
+[`rate-limiter/docs/design.md`](rate-limiter/docs/design.md) for design documentation.
+
+Perform the following, for a straight forward way to run the candidate assessment:
+1. From the repo root, in one terminal:
+   ```bash
+   ./gradlew :rate-limiter:bootRun
+   ```
+2. In a second terminal:
+   ```bash
+   cd test-harness
+   npm install
+   npm start -- --host localhost --port 8000
+   ```
+
+(Requires JDK 25 — Gradle will download one automatically if you don't have
+one locally. See `rate-limiter/README.md` for details.)
+
 ## Overview
 
 Design and implement a rate limiter service that can be used to control the rate of requests to an API. This challenge tests your ability to design a system that handles concurrency, maintains state, and provides a clean API interface.
