@@ -25,27 +25,20 @@ this is expected, not a hang.
 ./gradlew :rate-limiter:bootRun
 ```
 
-Starts the server on port 8080. To use a different port:
+Starts the server on port 8000. To use a different port:
 
 ```bash
 ./gradlew :rate-limiter:bootRun --args='--server.port=8090'
 ```
 
-```bash
-./gradlew :rate-limiter:bootRun --args='--server.port=8000'
-```
-
-(the interviewer's own assessment tooling defaults to checking port 8000
-first).
-
 ## API
 
 ```bash
-curl -X POST http://localhost:8080/api/v1/ratelimit \
+curl -X POST http://localhost:8000/api/v1/ratelimit \
   -H 'Content-Type: application/json' \
   -d '{"client_id": "client-a", "resource": "orders"}'
 
-curl -X POST http://localhost:8080/api/v1/configure \
+curl -X POST http://localhost:8000/api/v1/configure \
   -H 'Content-Type: application/json' \
   -d '{"window_seconds": 60, "request_per_window": 100}'
 ```
@@ -64,7 +57,7 @@ Runs all Kotest specs (unit, controller slice, and one full integration
 spec). `./gradlew :rate-limiter:check` additionally runs Spotless and
 SpotBugs.
 
-## Running the grading test-harness against this service
+## Running the test harness against this service
 
 From the repo root, in one terminal:
 
@@ -77,5 +70,5 @@ In another terminal:
 ```bash
 cd test-harness
 npm install
-npm start -- --host localhost --port 8080
+npm start -- --host localhost --port 8000
 ```
