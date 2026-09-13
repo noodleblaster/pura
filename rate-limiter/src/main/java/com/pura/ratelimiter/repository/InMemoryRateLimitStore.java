@@ -70,7 +70,8 @@ public class InMemoryRateLimitStore implements RateLimitStore {
                     ? rule.windowSeconds()
                     : Math.max(
                         1,
-                        ceilSeconds(Duration.between(now, oldest.plusSeconds(rule.windowSeconds()))));
+                        ceilSeconds(
+                            Duration.between(now, oldest.plusSeconds(rule.windowSeconds()))));
 
             decision.set(new RateLimitDecision(false, 0, retryAfter));
           }
