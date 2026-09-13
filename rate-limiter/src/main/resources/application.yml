@@ -1,0 +1,12 @@
+server:
+  port: 8000
+
+spring:
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+    default-property-inclusion: non_null
+
+ratelimiter:
+  default:
+    window-seconds: 60
+    request-per-window: 100
